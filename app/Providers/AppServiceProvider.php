@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Book;
 use App\Models\Housing;
+use App\Observers\BookingObserver;
 use App\Policies\HousingPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
@@ -23,5 +25,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Gate::policy(Housing::class, HousingPolicy::class);
+
+        Book::observe(BookingObserver::class);
     }
 }

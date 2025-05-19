@@ -7,8 +7,6 @@ use App\Models\Housing;
 
 class HousingService
 {
-    public function __construct()
-    {}
 
     public function getHousings(array $filters)
     {
