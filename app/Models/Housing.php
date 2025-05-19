@@ -18,4 +18,9 @@ class Housing extends Model
     {
         return $this->hasMany(Book::class);
     }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
 }
